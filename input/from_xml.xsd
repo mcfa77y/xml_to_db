@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="JDBOR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DisorderList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Disorder">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OrphaCode" type="xs:unsignedInt" />
+                    <xs:element name="ExpertLink">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="lang" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="Name">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="lang" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="FlagValue" type="xs:unsignedShort" />
+                    <xs:element name="Totalstatus">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="lang" type="xs:string" use="required" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SynonymList">
+                      <xs:complexType>
+                        <xs:sequence minOccurs="0">
+                          <xs:element maxOccurs="unbounded" name="Synonym">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="lang" type="xs:string" use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:unsignedByte" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DisorderType">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="lang" type="xs:string" use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ClassificationLevel">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Name">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="lang" type="xs:string" use="required" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DisorderDisorderAssociationList">
+                      <xs:complexType>
+                        <xs:attribute name="count" type="xs:unsignedByte" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SummaryInformationList">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SummaryInformation">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="TextSectionList">
+                                  <xs:complexType>
+                                    <xs:sequence minOccurs="0">
+                                      <xs:element name="TextSection">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element name="TextSectionType">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element name="Name">
+                                                    <xs:complexType>
+                                                      <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                          <xs:attribute name="lang" type="xs:string" use="required" />
+                                                        </xs:extension>
+                                                      </xs:simpleContent>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                              </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="Contents" type="xs:string" />
+                                          </xs:sequence>
+                                          <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                          <xs:attribute name="lang" type="xs:string" use="required" />
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="count" type="xs:unsignedByte" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="TextAuto">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="Info">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute name="lang" type="xs:string" use="required" />
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="id" type="xs:decimal" use="required" />
+                              <xs:attribute name="lang" type="xs:string" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="count" type="xs:unsignedByte" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="AggregationLevelSection">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="AggregationLevelList">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="AggregationLevel">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="OrphaCode" type="xs:unsignedInt" />
+                                      <xs:element name="PreferredTerm">
+                                        <xs:complexType>
+                                          <xs:simpleContent>
+                                            <xs:extension base="xs:string">
+                                              <xs:attribute name="lang" type="xs:string" use="required" />
+                                            </xs:extension>
+                                          </xs:simpleContent>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element name="AggregationLevelStatus" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                              <xs:attribute name="count" type="xs:unsignedByte" use="required" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="count" type="xs:unsignedShort" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="date" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:string" use="required" />
+      <xs:attribute name="copyright" type="xs:string" use="required" />
+      <xs:attribute name="dbserver" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

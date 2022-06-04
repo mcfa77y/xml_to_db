@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "xml_chicanery"
+version = "0.1.0"
+description = ""
+authors = ["Ginkies <joe@neatleaf.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+xmlschema = {extras = ["cli"], version = "^1.11.1"}
+pretty-errors = "^1.2.25"
+xsdata = {extras = ["cli", "lxml", "soap"], version = "^22.5"}
+xsdata-plantuml = "^21.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

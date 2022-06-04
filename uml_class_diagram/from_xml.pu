@@ -1,0 +1,143 @@
+@startuml
+
+class JDBOR {
+    +DisorderList : DisorderList
+    +date : string
+    +version : string
+    +copyright : string
+    +dbserver : string
+}
+JDBOR +-- DisorderList
+class DisorderList {
+    +Disorder : Disorder[]
+    +count : unsignedShort
+}
+DisorderList +-- Disorder
+class Disorder {
+    +OrphaCode : unsignedInt
+    +ExpertLink : ExpertLink
+    +Name : Name
+    +FlagValue : unsignedShort
+    +Totalstatus : Totalstatus
+    +SynonymList : SynonymList
+    +DisorderType : DisorderType
+    +ClassificationLevel : ClassificationLevel
+    +DisorderDisorderAssociationList : DisorderDisorderAssociationList
+    +SummaryInformationList : SummaryInformationList
+    +AggregationLevelSection : AggregationLevelSection
+    +id : unsignedShort
+}
+Disorder +-- ExpertLink
+class ExpertLink {
+    +value : string
+    +lang : string
+}
+Disorder +-- Name
+class Name {
+    +value : string
+    +lang : string
+}
+Disorder +-- Totalstatus
+class Totalstatus {
+    +value : string
+    +lang : string
+}
+Disorder +-- SynonymList
+class SynonymList {
+    +Synonym : Synonym[]
+    +count : unsignedByte
+}
+SynonymList +-- Synonym
+class Synonym {
+    +value : string
+    +lang : string
+}
+Disorder +-- DisorderType
+class DisorderType {
+    +Name : Name
+    +id : unsignedShort
+}
+DisorderType +-- Name
+class Name {
+    +value : string
+    +lang : string
+}
+Disorder +-- ClassificationLevel
+class ClassificationLevel {
+    +Name : Name
+    +id : unsignedShort
+}
+ClassificationLevel +-- Name
+class Name {
+    +value : string
+    +lang : string
+}
+Disorder +-- DisorderDisorderAssociationList
+class DisorderDisorderAssociationList {
+    +count : unsignedByte
+}
+Disorder +-- SummaryInformationList
+class SummaryInformationList {
+    +SummaryInformation : SummaryInformation
+    +count : unsignedByte
+}
+SummaryInformationList +-- SummaryInformation
+class SummaryInformation {
+    +TextSectionList : TextSectionList
+    +TextAuto : TextAuto
+    +id : decimal
+    +lang : string
+}
+SummaryInformation +-- TextSectionList
+class TextSectionList {
+    +TextSection : TextSection
+    +count : unsignedByte
+}
+TextSectionList +-- TextSection
+class TextSection {
+    +TextSectionType : TextSectionType
+    +Contents : string
+    +id : unsignedInt
+    +lang : string
+}
+TextSection +-- TextSectionType
+class TextSectionType {
+    +Name : Name
+    +id : unsignedShort
+}
+TextSectionType +-- Name
+class Name {
+    +value : string
+    +lang : string
+}
+SummaryInformation +-- TextAuto
+class TextAuto {
+    +Info : Info
+}
+TextAuto +-- Info
+class Info {
+    +value : string
+    +lang : string
+}
+Disorder +-- AggregationLevelSection
+class AggregationLevelSection {
+    +AggregationLevelList : AggregationLevelList
+}
+AggregationLevelSection +-- AggregationLevelList
+class AggregationLevelList {
+    +AggregationLevel : AggregationLevel
+    +count : unsignedByte
+}
+AggregationLevelList +-- AggregationLevel
+class AggregationLevel {
+    +OrphaCode : unsignedInt
+    +PreferredTerm : PreferredTerm
+    +AggregationLevelStatus : string
+}
+AggregationLevel +-- PreferredTerm
+class PreferredTerm {
+    +value : string
+    +lang : string
+}
+
+@enduml
